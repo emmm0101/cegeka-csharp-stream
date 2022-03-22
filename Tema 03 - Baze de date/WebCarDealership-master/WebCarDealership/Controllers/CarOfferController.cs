@@ -38,7 +38,9 @@ namespace CarDealership.Controllers
             {
                 Make = model.Make,
                 Model = model.Model,
-                AvailableStock = model.AvailableStock
+                AvailableStock = model.AvailableStock,
+                UnitPrice = model.UnitPrice
+                
             };
 
             _dbContext.CarOffers.Add(dbModel);
@@ -60,7 +62,8 @@ namespace CarDealership.Controllers
             {
                 Make = model.Make,
                 Model = model.Model,
-                AvailableStock = model.AvailableStock
+                AvailableStock = model.AvailableStock,
+                UnitPrice = model.UnitPrice 
             };
 
             _dbContext.CarOffers.Update(dbModel);

@@ -15,5 +15,12 @@ namespace CarDealership.Data.Models
         [Required]
         public DateTime InvoiceDate { get; set; }
 
+        [Required]
+        public int CustomerId { get; set; }
+
+        [Required]
+        public ICollection<int> OrderIds { get; set; }
+
+
     }
 }

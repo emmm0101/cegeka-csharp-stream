@@ -14,7 +14,7 @@ namespace CarDealership.Data.Models
 
         public int CarOfferId { get; set; }
 
-        public int InvoiceId { get; set; }
+        public int? InvoiceId { get; set; }
 
         public DateTime Date { get; set; }
 

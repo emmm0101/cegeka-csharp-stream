@@ -33,6 +33,7 @@ namespace WebCarDealership.Controllers
             }
 
             var offer = await _dbContext.CarOffers.FirstOrDefaultAsync(offer => offer.Id == model.CarOfferId);
+            
             if (offer == null)
             {
                 return NotFound("car offer not found");

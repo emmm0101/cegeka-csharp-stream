@@ -13,11 +13,10 @@ namespace CarDealership.Data.Migrations
                 name: "InvoiceId",
                 table: "Orders",
                 type: "int",
-                nullable: false,
-                defaultValue: 0);
+                nullable: true);
 
             migrationBuilder.CreateTable(
-                name: "Invoice",
+                name: "Invoices",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -29,9 +28,9 @@ namespace CarDealership.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Invoice", x => x.Id);
+                    table.PrimaryKey("PK_Invoices", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Invoice_Customers_CustomerId",
+                        name: "FK_Invoices_Customers_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "Customers",
                         principalColumn: "Id",
@@ -44,33 +43,32 @@ namespace CarDealership.Data.Migrations
                 column: "InvoiceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Invoice_CustomerId",
-                table: "Invoice",
+                name: "IX_Invoices_CustomerId",
+                table: "Invoices",
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Invoice_InvoiceNumber",
-                table: "Invoice",
+                name: "IX_Invoices_InvoiceNumber",
+                table: "Invoices",
                 column: "InvoiceNumber",
                 unique: true);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Orders_Invoice_InvoiceId",
+                name: "FK_Orders_Invoices_InvoiceId",
                 table: "Orders",
                 column: "InvoiceId",
-                principalTable: "Invoice",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                principalTable: "Invoices",
+                principalColumn: "Id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Orders_Invoice_InvoiceId",
+                name: "FK_Orders_Invoices_InvoiceId",
                 table: "Orders");
 
             migrationBuilder.DropTable(
-                name: "Invoice");
+                name: "Invoices");
 
             migrationBuilder.DropIndex(
                 name: "IX_Orders_InvoiceId",

@@ -12,7 +12,7 @@ using WebCarDealership;
 namespace CarDealership.Data.Migrations
 {
     [DbContext(typeof(DealershipDbContext))]
-    [Migration("20220320230912_AddInvoice")]
+    [Migration("20220322210658_AddInvoice")]
     partial class AddInvoice
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -103,7 +103,7 @@ namespace CarDealership.Data.Migrations
                     b.HasIndex("InvoiceNumber")
                         .IsUnique();
 
-                    b.ToTable("Invoice");
+                    b.ToTable("Invoices");
                 });
 
             modelBuilder.Entity("CarDealership.Data.Models.Order", b =>
@@ -123,7 +123,7 @@ namespace CarDealership.Data.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("InvoiceId")
+                    b.Property<int?>("InvoiceId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("OrderAmount")
@@ -170,9 +170,7 @@ namespace CarDealership.Data.Migrations
 
                     b.HasOne("CarDealership.Data.Models.Invoice", "Invoice")
                         .WithMany("Orders")
-                        .HasForeignKey("InvoiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("InvoiceId");
 
                     b.Navigation("CarOffer");
 
