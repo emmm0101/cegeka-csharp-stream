@@ -42,17 +42,4 @@ export function postOrder(order: OrderModel) {
     })
 }
 
-// to do 
-export function getCarId(): Promise<CarModel[]> {
-    return fetch('https://localhost:7198/CarOffer')
-        .then(r => r.json())
-}
-
-// to do
-export function getCustomerId(): Promise<CarModel[]> {
-    return fetch('https://localhost:7198/CarOffer')
-        .then(r => r.json())
-}
-
-
 

@@ -1,6 +1,6 @@
 import { CarModel } from "../models/car.model";
 import Modal from "./Modal";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 interface TProps{
     car: CarModel;
 }
@@ -37,7 +37,17 @@ function Car(props: TProps){
                         <p className="card-text" style={{color:'red', fontWeight:'bold'}}>{formatedDiscountPrice}</p>
                     </>
                 }
-                <a href="#" className="btn btn-primary" onClick={()=>navigate('/order')}>Buy</a>
+                {/* 
+                V1:
+                <button className="btn btn-primary">
+                    <Link style={{color:'white', textDecoration: 'none' }}  to="/order" state={{car:car}}>Buy</Link>
+                </button> */
+                }
+                {/* 
+                V2:
+                <button className="btn btn-primary" onClick={()=>navigate('/order',  { state: { car: car } })}>Buy</button> */
+                }
+                {/* <a className="btn btn-primary" onClick={()=>navigate('/order',  { state: { car: car } })}>Buy</a> */}
             </div>
 
         </div>

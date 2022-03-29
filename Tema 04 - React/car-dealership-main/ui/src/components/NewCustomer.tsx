@@ -3,7 +3,7 @@ import { postCustomer } from "../common/api.service";
 import { CustomerModel } from "../models/customer.model";
 import { useNavigate } from "react-router-dom";
 
-function NewCar(props:any) {
+function NewCustomer(props:any) {
 
     const navigate = useNavigate()
     const [name, setName] = useState('');
@@ -34,6 +34,6 @@ function NewCar(props:any) {
             </div>
         </>);
 }
-export default NewCar;
+export default NewCustomer;
 
 

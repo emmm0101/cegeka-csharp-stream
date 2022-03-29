@@ -1,4 +1,10 @@
-export interface CustomerModel{
-    name:string;
-    email:string;
+export interface CarModel{
+    id?:number;
+    make:string;
+    model:string;
+    unitPrice:number;
+    availableStock:number;
+    image:string;
+    discountPercentage:number;
+
 }

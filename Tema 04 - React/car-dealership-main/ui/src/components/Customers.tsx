@@ -36,13 +36,7 @@ function Customers() {
                 </tbody>
             </table>
             <button type="button" onClick={()=>  {navigate('/newcustomer')}} className="btn btn-primary">Add customer</button>
-
-
-
-
         </>
-
-
     );
 }
 

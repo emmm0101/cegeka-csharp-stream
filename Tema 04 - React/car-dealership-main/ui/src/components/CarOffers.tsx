@@ -32,7 +32,16 @@ function CarOffers() {
             <button type="button" onClick={() => navigate('/newcar')} className="btn btn-primary">Add car</button>
             <div></div>
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                {cars.map(c => <Car car={c} />)}
+                {cars.map(c =>
+                    <>
+                        <form >
+                            <Car car={c} />
+                            <a className="btn btn-primary" onClick={() => navigate('/order', { state: { car: c } })}>Buy</a>
+                        </form>
+                    </>
+
+
+                )}
             </div>
         </div>);
 }

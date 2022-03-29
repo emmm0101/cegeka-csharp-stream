@@ -1,5 +1,5 @@
 export interface OrderModel{
-    customerId:number;
-    carOfferId:number;
-    quantity:number;
+    customerId:number | null ;
+    carOfferId:number | undefined;
+    quantity:number | null;
 }
